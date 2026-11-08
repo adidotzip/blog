@@ -1,6 +1,6 @@
 # adi's corner
 
-A personal blog built with **Astro + Svelte**, with a Material 3-inspired palette, Markdown posts, Google Sans Rounded typography, and Material Symbols Rounded icons.
+A personal blog built with **Astro + Svelte**, with a Material 3-inspired palette, Markdown posts, Google Sans Rounded loaded from the upstream GitHub repository, and Material Symbols Rounded icons.
 
 ## Development
 
@@ -41,7 +41,7 @@ The project URL is configured as `https://adidotzip.github.io/blog/`. The workfl
 
 ## Fonts and icons
 
-Google Sans Rounded TTF files belong in `src/fonts/`; the upstream SIL Open Font License 1.1 is included there. Material Symbols Rounded is loaded from Google Fonts.
+Google Sans Rounded is loaded from the upstream GitHub-hosted stylesheet, so no font files are stored in this repository. Material Symbols Rounded is loaded from Google Fonts.
 
 Example icon:
 
