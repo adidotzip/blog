@@ -169,6 +169,4 @@ main { min-height: calc(100vh - 76px); padding-block: 52px 80px; }
   .post-card { gap: 12px; padding-block: 18px; }
   .post-card h2 { font-size: 17px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}
+*, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
