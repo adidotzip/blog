@@ -8,9 +8,15 @@
     document.documentElement.dataset.theme = theme;
   });
   function toggleTheme() {
+    const root = document.documentElement;
     theme = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = theme;
+    root.classList.add("theme-transitioning");
+    root.dataset.theme = theme;
     localStorage.setItem("theme", theme);
+
+    window.setTimeout(() => {
+      root.classList.remove("theme-transitioning");
+    }, 360);
   }
 </script>
 <button class="theme-toggle" type="button" onclick={toggleTheme} aria-label="Toggle color theme" title="Toggle theme">
