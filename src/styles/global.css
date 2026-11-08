@@ -500,3 +500,19 @@ main {
     animation: none;
   }
 }
+
+
+/* Let the disclosure container itself morph into its compact shape */
+.article-content details {
+  overflow: clip;
+  transition: height 260ms cubic-bezier(.2, 0, 0, 1), border-radius 260ms cubic-bezier(.2, 0, 0, 1) !important;
+}
+.article-content details.is-closing {
+  overflow: hidden;
+  border-radius: 18px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-content details {
+    transition: none !important;
+  }
+}
