@@ -29,5 +29,30 @@ const pageTitle = title === "adi's corner" ? title : `${title} · adi's corner`;
     <ThemeToggle client:load />
   </header>
   <main><slot /></main>
+  <script is:inline>
+    document.addEventListener("click", (event) => {
+      const summary = event.target instanceof Element
+        ? event.target.closest(".article-content details > summary")
+        : null;
+      if (!summary) return;
+
+      const details = summary.parentElement;
+      if (!(details instanceof HTMLDetailsElement)) return;
+
+      if (details.classList.contains("is-closing")) {
+        event.preventDefault();
+        return;
+      }
+
+      if (details.open) {
+        event.preventDefault();
+        details.classList.add("is-closing");
+        window.setTimeout(() => {
+          details.open = false;
+          details.classList.remove("is-closing");
+        }, 220);
+      }
+    });
+  </script>
 </body>
 </html>
