@@ -172,6 +172,121 @@ main { min-height: calc(100vh - 76px); padding-block: 52px 80px; }
 .article-content pre code { padding: 0; background: transparent; }
 .article-content img { max-width: 100%; border-radius: 18px; }
 .article-content hr { margin-block: 32px; border: 0; border-top: 1px solid var(--m3c-outline-variant); }
+
+/* Markdown callouts */
+.article-content .callout {
+  --callout-accent: var(--m3c-primary);
+  --callout-tint: var(--m3c-primary-container-subtle);
+  display: block;
+  margin: 24px 0;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--callout-accent) 28%, transparent);
+  border-left: 4px solid var(--callout-accent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--callout-tint) 24%, var(--m3c-surface-container-low));
+  color: var(--m3c-on-surface);
+}
+.article-content .callout > :last-child { margin-bottom: 0; }
+.article-content .callout > :first-child { margin-top: 0; }
+.article-content .callout .callout-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 7px;
+  color: var(--callout-accent);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.article-content .callout .callout-title::before {
+  font-family: "Material Symbols Rounded";
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 1;
+}
+.article-content .callout-note { --callout-accent: #60a5fa; --callout-tint: #1d4ed8; }
+.article-content .callout-note .callout-title::before { content: "info"; }
+.article-content .callout-tip { --callout-accent: #eab308; --callout-tint: #854d0e; }
+.article-content .callout-tip .callout-title::before { content: "lightbulb"; }
+.article-content .callout-warning { --callout-accent: #f59e0b; --callout-tint: #92400e; }
+.article-content .callout-warning .callout-title::before { content: "warning"; }
+.article-content .callout-success { --callout-accent: #22c55e; --callout-tint: #166534; }
+.article-content .callout-success .callout-title::before { content: "check_circle"; }
+.article-content .callout-danger { --callout-accent: #ef4444; --callout-tint: #991b1b; }
+.article-content .callout-danger .callout-title::before { content: "error"; }
+.article-content .callout-important { --callout-accent: #c084fc; --callout-tint: #6b21a8; }
+.article-content .callout-important .callout-title::before { content: "priority_high"; }
+
+/* Tables, task lists, links, keyboard keys and native disclosure blocks */
+.article-content table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--m3c-outline-variant);
+  border-radius: 14px;
+  font-size: 14px;
+}
+.article-content th, .article-content td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--m3c-outline-variant);
+  text-align: left;
+}
+.article-content th {
+  color: var(--m3c-on-surface);
+  background: var(--m3c-surface-container-high);
+  font-weight: 600;
+}
+.article-content tr:last-child td { border-bottom: 0; }
+.article-content a {
+  color: var(--m3c-primary);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--m3c-primary) 45%, transparent);
+  text-underline-offset: 3px;
+}
+.article-content ul, .article-content ol { padding-left: 1.5em; }
+.article-content li { padding-left: 3px; margin-block: 5px; }
+.article-content li input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0 8px 0 0;
+  accent-color: var(--m3c-primary);
+  vertical-align: -2px;
+}
+.article-content kbd {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid var(--m3c-outline-variant);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--m3c-surface-container);
+  color: var(--m3c-on-surface);
+  font-family: inherit;
+  font-size: .85em;
+}
+.article-content details {
+  margin: 20px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--m3c-outline-variant);
+  border-radius: 14px;
+  background: var(--m3c-surface-container-low);
+}
+.article-content details summary {
+  color: var(--m3c-on-surface);
+  cursor: pointer;
+  font-weight: 600;
+}
+.article-content details[open] summary { margin-bottom: 12px; }
+.article-content details > :last-child { margin-bottom: 0; }
+.article-content figure { margin: 24px 0; }
+.article-content figcaption {
+  margin-top: 8px;
+  color: var(--m3c-on-surface-variant);
+  font-size: 13px;
+  text-align: center;
+}
+
 .tag-list { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
 .tag { padding: 6px 12px; border-radius: 999px; color: var(--m3c-on-secondary-container); background: var(--m3c-secondary-container); font-size: 11px; }
 @media (max-width: 620px) {
