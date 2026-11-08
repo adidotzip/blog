@@ -426,3 +426,26 @@ body { animation: page-fade-in 280ms ease-out both; }
 @media (prefers-reduced-motion: reduce) {
   .blog-search { transition: none !important; }
 }
+
+
+/* Briefly enable colour transitions only while the theme is changing */
+:root.theme-transitioning *,
+:root.theme-transitioning *::before,
+:root.theme-transitioning *::after {
+  transition:
+    color 320ms ease,
+    background-color 320ms ease,
+    border-color 320ms ease,
+    outline-color 320ms ease,
+    box-shadow 320ms ease,
+    text-decoration-color 320ms ease,
+    fill 320ms ease,
+    stroke 320ms ease !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root.theme-transitioning *,
+  :root.theme-transitioning *::before,
+  :root.theme-transitioning *::after {
+    transition: none !important;
+  }
+}
