@@ -1,6 +1,6 @@
 ---
 title: "A small corner of the internet"
-description: "A first note about why this blog exists, what might find its way here, and a little tour of the things Markdown can do."
+description: "A first note about why this blog exists, what might find its way here, and a tour of the Markdown features supported here."
 pubDate: 2026-11-08
 tags: [Notes, Beginnings, Markdown]
 draft: false
@@ -10,7 +10,7 @@ draft: false
 
 A small place to collect thoughts, document things I'm learning, and share projects as they take shape.
 
-Expect a mix of **development notes**, *personal thoughts*, experiments, useful discoveries, and whatever else feels worth writing down. Sometimes there will be code. Sometimes there will be a tiny idea that grew legs.
+Expect a mix of **development notes**, *personal thoughts*, experiments, useful discoveries, and whatever else feels worth writing down.
 
 > "A place to build, break, learn, and share."
 
@@ -24,32 +24,26 @@ This is my corner of the internet. I'll use it to share what I'm working on, wha
 
 The internet is a big place. This is my little corner of it.
 
-## Notes, tips, and callouts
+## Real callouts
 
-These labelled quote blocks are examples of the different callout messages I may use in future posts.
+Callouts use the `[!TYPE]` Markdown syntax. Their labels, icons, and colors are generated automatically.
 
-> **Note**
->
+> [!NOTE]
 > This is an informational note for readers. It adds context without interrupting the main flow.
 
-> **Tip**
->
+> [!TIP]
 > A useful trick or recommendation worth remembering.
 
-> **Warning**
->
+> [!WARNING]
 > Be careful when running commands that modify your files. Double-check the target before executing them.
 
-> **Success**
->
+> [!SUCCESS]
 > The deployment completed successfully!
 
-> **Danger**
->
+> [!DANGER]
 > This operation permanently deletes the selected data. Make sure you have a backup.
 
-> **Important**
->
+> [!IMPORTANT]
 > Here's something especially worth paying attention to.
 
 ## Quotes
@@ -104,15 +98,13 @@ Visit [GitHub](https://github.com) to explore projects and open-source software.
 
 ## Images and captions
 
-Images can be added with standard Markdown:
+Add an image using its actual URL or a path relative to the public directory:
 
-`![A short description of the image](path-or-image-url)`
+`![A description of the image](/blog/images/example.jpg)`
 
-*An image caption can go in its own italic paragraph underneath.*
+For a caption, put an italic paragraph directly below the image:
 
-## Separators
-
-A horizontal rule like the ones between sections above gives longer articles a little breathing room.
+*An image caption can go here.*
 
 ## Keyboard shortcuts
 
