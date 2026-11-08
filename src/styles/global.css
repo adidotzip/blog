@@ -47,9 +47,6 @@
  font-family:"Google Sans Rounded","Google Sans",system-ui,sans-serif;
  font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;
 }
-@font-face{font-family:"Google Sans Rounded";src:url("../fonts/GoogleSansRounded-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:"Google Sans Rounded";src:url("../fonts/GoogleSansRounded-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
-@font-face{font-family:"Google Sans Rounded";src:url("../fonts/GoogleSansRounded-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
 :root[data-theme="dark"]{color-scheme:dark}
 :root[data-theme="light"]{color-scheme:light}
 *{box-sizing:border-box}
