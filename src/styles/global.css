@@ -204,17 +204,17 @@ main { min-height: calc(100vh - 76px); padding-block: 52px 80px; }
   font-weight: normal;
   line-height: 1;
 }
-.article-content .callout-note { --callout-accent: #60a5fa; --callout-tint: #1d4ed8; }
+.article-content .callout-note { --callout-accent: light-dark(#1d4ed8, #93c5fd); --callout-tint: light-dark(#dbeafe, #1e3a8a); }
 .article-content .callout-note .callout-title::before { content: "info"; }
-.article-content .callout-tip { --callout-accent: #eab308; --callout-tint: #854d0e; }
+.article-content .callout-tip { --callout-accent: light-dark(#854d0e, #facc15); --callout-tint: light-dark(#fef3c7, #713f12); }
 .article-content .callout-tip .callout-title::before { content: "lightbulb"; }
-.article-content .callout-warning { --callout-accent: #f59e0b; --callout-tint: #92400e; }
+.article-content .callout-warning { --callout-accent: light-dark(#92400e, #fbbf24); --callout-tint: light-dark(#ffedd5, #78350f); }
 .article-content .callout-warning .callout-title::before { content: "warning"; }
-.article-content .callout-success { --callout-accent: #22c55e; --callout-tint: #166534; }
+.article-content .callout-success { --callout-accent: light-dark(#166534, #86efac); --callout-tint: light-dark(#dcfce7, #14532d); }
 .article-content .callout-success .callout-title::before { content: "check_circle"; }
-.article-content .callout-danger { --callout-accent: #ef4444; --callout-tint: #991b1b; }
+.article-content .callout-danger { --callout-accent: light-dark(#b91c1c, #fca5a5); --callout-tint: light-dark(#fee2e2, #7f1d1d); }
 .article-content .callout-danger .callout-title::before { content: "error"; }
-.article-content .callout-important { --callout-accent: #c084fc; --callout-tint: #6b21a8; }
+.article-content .callout-important { --callout-accent: light-dark(#7e22ce, #d8b4fe); --callout-tint: light-dark(#f3e8ff, #581c87); }
 .article-content .callout-important .callout-title::before { content: "priority_high"; }
 
 /* Tables, task lists, links, keyboard keys and native disclosure blocks */
