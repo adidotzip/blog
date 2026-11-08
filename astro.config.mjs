@@ -4,7 +4,7 @@ import remarkCallouts from "./src/lib/remark-callouts.mjs";
 
 export default defineConfig({
   site: "https://blog.adi.rest",
-  base: "/blog",
+  // A custom domain serves the site from the root, not /blog.
   integrations: [svelte()],
   markdown: {
     remarkPlugins: [remarkCallouts],
