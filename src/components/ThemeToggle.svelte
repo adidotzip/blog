@@ -1,10 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  let theme = $state<"light" | "dark">("dark");
+  let theme = $state<"light" | "dark">(
+    typeof document !== "undefined" && document.documentElement.dataset.theme === "light" ? "light" : "dark"
+  );
   onMount(() => {
     const saved = localStorage.getItem("theme");
-    const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    theme = saved === "light" || saved === "dark" ? saved : preferred;
+    theme = saved === "light" || saved === "dark" ? saved : "dark";
     document.documentElement.dataset.theme = theme;
   });
   function toggleTheme() {
@@ -29,6 +30,8 @@
   .theme-icon{position:absolute;display:block;opacity:0;transform:rotate(-35deg) scale(.65);transition:opacity 300ms cubic-bezier(.2,0,0,1),transform 420ms cubic-bezier(.2,0,0,1);}
   .sun-icon.icon-visible{opacity:1;transform:rotate(0) scale(1);}
   .moon-icon.icon-visible{opacity:1;transform:rotate(0) scale(1);}
+  :global(html[data-theme="light"]) .sun-icon.icon-visible{opacity:0;transform:rotate(-35deg) scale(.65);}
+  :global(html[data-theme="light"]) .moon-icon{opacity:1;transform:rotate(0) scale(1);}
   .theme-toggle:active .theme-icon.icon-visible{opacity:.78;}
   @media (prefers-reduced-motion: reduce){.theme-toggle,.theme-icon{transition:none;}}
   .material-symbols-rounded{font-size:21px;font-variation-settings:"FILL" 0,"wght" 500,"GRAD" 0,"opsz" 24}

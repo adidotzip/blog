@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+export async function getStaticPaths(){const posts=await getCollection("posts",({data})=>!data.draft);return posts.map(post=>({params:{slug:post.id},props:{post}}))}
+const {post}=Astro.props;
+const {Content}=await render(post);
+const dateFormat=new Intl.DateTimeFormat("en",{month:"long",day:"numeric",year:"numeric"});
+const readableText = (post.body || "")
+  .replace(/```[\s\S]*?```/g, " ")
+  .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+  .replace(/<[^>]*>/g, " ")
+  .replace(/[#>*_~`|]/g, " ");
+const wordCount = readableText.trim().split(/\s+/u).filter(Boolean).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+---
+<BaseLayout title={post.data.title} description={post.data.description}><article class="article" id="top">
+<a class="article-back" href={import.meta.env.BASE_URL}><span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>Back to all writing</a>
+<header class="article-header"><div class="post-meta"><time datetime={post.data.pubDate.toISOString()}>{dateFormat.format(post.data.pubDate)}</time><span class="meta-dot" aria-hidden="true"></span><span>{readingTime} min read</span></div>
+<h1>{post.data.title}</h1><p class="article-description">{post.data.description}</p>
+{post.data.tags.length>0&&<div class="tag-list">{post.data.tags.map(tag=><span class="tag">{tag}</span>)}</div>}</header>
+<div class="article-content"><Content/></div></article></BaseLayout>

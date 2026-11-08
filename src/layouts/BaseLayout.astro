@@ -19,7 +19,14 @@ const pageTitle = title === "adi's corner" ? title : `${title} · adi's corner`;
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0;20..48,500,0,0;20..48,500,1,0&display=swap" rel="stylesheet" />
   <meta name="color-scheme" content="light dark" />
   <title>{pageTitle}</title>
-  <script is:inline>{`(() => { try { const saved = localStorage.getItem("theme"); const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch {} })();`}</script>
+  <script is:inline>
+    (() => {
+      try {
+        const saved = localStorage.getItem("theme");
+        document.documentElement.dataset.theme = saved === "light" || saved === "dark" ? saved : "dark";
+      } catch {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
