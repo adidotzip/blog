@@ -350,3 +350,79 @@ body { animation: page-fade-in 280ms ease-out both; }
     animation: none;
   }
 }
+
+
+/* Material 3 expressive blog search */
+.blog-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  margin: 0 0 8px;
+  padding: 0 18px;
+  border: 1px solid var(--m3c-outline-variant);
+  border-radius: 18px;
+  background: var(--m3c-surface-container-low);
+  color: var(--m3c-on-surface-variant);
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease !important;
+}
+.blog-search:focus-within {
+  border-color: var(--m3c-primary);
+  background: var(--m3c-surface-container);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--m3c-primary) 13%, transparent);
+}
+.blog-search-icon {
+  flex: 0 0 auto;
+  font-size: 22px;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+.blog-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 16px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--m3c-on-surface);
+  font: inherit;
+  font-size: 15px;
+}
+.blog-search input::placeholder { color: var(--m3c-on-surface-variant); opacity: 1; }
+.blog-search input::-webkit-search-cancel-button { cursor: pointer; }
+.search-shortcut {
+  flex: 0 0 auto;
+  min-width: 25px;
+  padding: 3px 7px;
+  border: 1px solid var(--m3c-outline-variant);
+  border-radius: 7px;
+  background: var(--m3c-surface-container);
+  color: var(--m3c-on-surface-variant);
+  text-align: center;
+}
+.search-status {
+  min-height: 18px;
+  margin: 0 2px 10px;
+  color: var(--m3c-on-surface-variant);
+  font-size: 12px;
+}
+.search-empty {
+  margin: 22px 0;
+  color: var(--m3c-on-surface-variant);
+  font-size: 14px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.post-card[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .blog-search { transition: none !important; }
+}
