@@ -304,3 +304,49 @@ body { animation: page-fade-in 280ms ease-out both; }
   body { animation: none; }
 }
 *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+
+
+/* Material Symbols disclosure arrow and smooth details reveal */
+.article-content details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+}
+.article-content details > summary::-webkit-details-marker {
+  display: none;
+}
+.article-content details > summary::marker {
+  content: "";
+}
+.article-content details > summary::after {
+  content: "arrow_drop_down";
+  flex: 0 0 auto;
+  font-family: "Material Symbols Rounded";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  transform: rotate(0deg);
+  transition: transform 220ms cubic-bezier(.2, 0, 0, 1) !important;
+}
+.article-content details[open] > summary::after {
+  transform: rotate(180deg);
+}
+.article-content details[open] > :not(summary) {
+  animation: details-content-in 220ms cubic-bezier(.2, 0, 0, 1) both;
+}
+@keyframes details-content-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-content details > summary::after {
+    transition: none !important;
+  }
+  .article-content details[open] > :not(summary) {
+    animation: none;
+  }
+}
