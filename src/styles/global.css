@@ -1,6 +1,3 @@
-@import "m3-svelte/etc/styles.css";
-@import "m3-svelte/etc/recommended-styles.css";
-
 @font-face {
   font-family: "Google Sans Flex Rounded";
   src: url("https://raw.githubusercontent.com/tiwa244/Google-Sans-Rounded/main/GoogleSansRounded-Regular.ttf") format("truetype");
@@ -21,10 +18,6 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-@function --m3-density(--size) {
-  result: var(--size);
 }
 
 :root {
