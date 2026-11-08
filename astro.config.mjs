@@ -4,6 +4,7 @@ import remarkCallouts from "./src/lib/remark-callouts.mjs";
 
 export default defineConfig({
   site: "https://blog.adi.rest",
+  base: "/blog",
   integrations: [svelte()],
   markdown: {
     remarkPlugins: [remarkCallouts],
