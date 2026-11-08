@@ -46,11 +46,23 @@ const pageTitle = title === "adi's corner" ? title : `${title} · adi's corner`;
 
       if (details.open) {
         event.preventDefault();
+
+        const summaryHeight = summary.getBoundingClientRect().height;
+        const compactHeight = Math.ceil(summaryHeight + 28);
+
+        details.style.height = `${details.getBoundingClientRect().height}px`;
         details.classList.add("is-closing");
+        details.getBoundingClientRect();
+
+        details.style.height = `${compactHeight}px`;
+
+        const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260;
         window.setTimeout(() => {
           details.open = false;
           details.classList.remove("is-closing");
-        }, 220);
+          details.style.removeProperty("height");
+          details.style.removeProperty("overflow");
+        }, duration);
       }
     });
   </script>
