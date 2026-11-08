@@ -140,6 +140,23 @@ main { min-height: calc(100vh - 76px); padding-block: 52px 80px; }
 .empty-state { margin: 0; color: var(--m3c-on-surface-variant); }
 .article { max-width: 700px; margin-inline: auto; }
 .article-back { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 38px; color: var(--m3c-on-surface-variant); font-size: 13px; }
+.post-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--m3c-on-surface-variant);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.post-meta time { display: inline-block; }
+.meta-dot {
+  width: 3px;
+  height: 3px;
+  flex: 0 0 3px;
+  border-radius: 50%;
+  background: var(--m3c-on-surface-variant);
+}
 .article-header { margin-bottom: 36px; }
 .article-header h1 { margin: 15px 0; font-size: clamp(36px, 6vw, 58px); line-height: 1.1; letter-spacing: -2px; }
 .article-description { color: var(--m3c-on-surface-variant); font-size: 17px; line-height: 1.7; }
