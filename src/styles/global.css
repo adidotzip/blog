@@ -481,3 +481,22 @@ main {
     animation: none;
   }
 }
+
+
+/* Fade disclosure content out before the native details element collapses */
+.article-content details.is-closing > :not(summary) {
+  animation: details-content-out 220ms cubic-bezier(.2, 0, 0, 1) both;
+  pointer-events: none;
+}
+.article-content details.is-closing > summary::after {
+  transform: rotate(0deg);
+}
+@keyframes details-content-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-content details.is-closing > :not(summary) {
+    animation: none;
+  }
+}
