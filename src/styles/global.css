@@ -738,3 +738,10 @@ main {
     transition: none !important;
   }
 }
+
+
+/* Keep the theme-toggle hover state bright enough for its icon */
+.theme-toggle:hover {
+  background: var(--m3c-primary-container) !important;
+  color: var(--m3c-on-primary-container) !important;
+}
