@@ -1,28 +1,33 @@
 ---
 import ThemeToggle from "../components/ThemeToggle.svelte";
 import "../styles/global.css";
-interface Props { title?:string; description?:string }
-const { title="adi's corner", description="Notes, projects, and things worth keeping." } = Astro.props;
+interface Props { title?: string; description?: string }
+const { title = "adi's corner", description = "The latest writing by adi." } = Astro.props;
 const pageTitle = title === "adi's corner" ? title : `${title} · adi's corner`;
 ---
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#11062d" /><meta name="description" content={description} />
-<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-<link rel="preconnect" href="https://raw.githubusercontent.com" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0;20..48,500,0,0;20..48,500,1,0&display=swap" rel="stylesheet" />
-<meta name="color-scheme" content="light dark" /><title>{pageTitle}</title>
-<script is:inline>{`(() => { try { const s=localStorage.getItem("theme"); const p=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"; document.documentElement.dataset.theme=s||p; } catch {} })();`}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#11062d" />
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+  <link rel="preconnect" href="https://raw.githubusercontent.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0;20..48,500,0,0;20..48,500,1,0&display=swap" rel="stylesheet" />
+  <meta name="color-scheme" content="light dark" />
+  <title>{pageTitle}</title>
+  <script is:inline>{`(() => { try { const saved = localStorage.getItem("theme"); const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch {} })();`}</script>
 </head>
 <body>
-<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-<header class="site-header">
-<a class="wordmark" href={import.meta.env.BASE_URL} aria-label="adi's corner home"><span class="wordmark-mark">a</span><span>adi<span class="wordmark-muted">'s corner</span></span></a>
-<nav aria-label="Main navigation"><a href={import.meta.env.BASE_URL}>Writing</a><a href={`${import.meta.env.BASE_URL}about/`}>About</a><a href="https://github.com/adidotzip" target="_blank" rel="noreferrer">GitHub <span class="material-symbols-rounded external-icon" aria-hidden="true">north_east</span></a></nav>
-<ThemeToggle client:load />
-</header>
-<main><slot /></main>
-<footer class="site-footer"><span>Made with care, somewhere on the internet.</span><a href="#top">Back to top <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span></a></footer>
-</body></html>
+  <header class="site-header">
+    <a class="wordmark" href={import.meta.env.BASE_URL} aria-label="adi's corner home">
+      <span class="wordmark-mark">a</span><span>adi<span class="wordmark-muted">'s corner</span></span>
+    </a>
+    <ThemeToggle client:load />
+  </header>
+  <main><slot /></main>
+</body>
+</html>
