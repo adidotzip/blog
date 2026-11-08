@@ -19,10 +19,22 @@ const getReadingTime = (body) => {
 <BaseLayout description="The latest writing by adi.">
   <section aria-labelledby="writing-title" id="top">
     <h1 class="writing-title" id="writing-title">Latest writings</h1>
+    <div class="blog-search">
+      <span class="material-symbols-rounded blog-search-icon" aria-hidden="true">search</span>
+      <label class="sr-only" for="post-search">Search writings</label>
+      <input id="post-search" type="search" placeholder="Search writings" autocomplete="off" spellcheck="false" />
+      <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+    </div>
+    <p class="search-status" id="search-status" aria-live="polite"></p>
     {posts.length ? (
       <div class="post-list">
         {posts.map((post) => (
-          <a class="post-card" href={`${import.meta.env.BASE_URL}/posts/${post.id}/`}>
+          <a class="post-card" data-post-card data-search={[
+            post.data.title,
+            post.data.description,
+            ...(post.data.tags || []),
+            post.body,
+          ].join(" ").toLowerCase()} href={`${import.meta.env.BASE_URL}/posts/${post.id}/`}>
             <div class="post-copy">
               <div class="post-card-meta">
                 <time class="post-date" datetime={post.data.pubDate.toISOString()}>{dateFormat.format(post.data.pubDate)}</time>
@@ -39,5 +51,41 @@ const getReadingTime = (body) => {
     ) : (
       <p class="empty-state">No posts yet.</p>
     )}
+    <p class="search-empty" id="search-empty" hidden>No writings found. Try another search.</p>
   </section>
+  <script>
+    const searchInput = document.querySelector("#post-search");
+    const postCards = [...document.querySelectorAll("[data-post-card]")];
+    const searchStatus = document.querySelector("#search-status");
+    const searchEmpty = document.querySelector("#search-empty");
+
+    function filterPosts() {
+      const query = searchInput.value.trim().toLocaleLowerCase();
+      let visibleCount = 0;
+
+      for (const card of postCards) {
+        const matches = !query || card.dataset.search.includes(query);
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      }
+
+      searchEmpty.hidden = !query || visibleCount > 0;
+      searchStatus.textContent = query
+        ? `${visibleCount} ${visibleCount === 1 ? "result" : "results"}`
+        : "";
+    }
+
+    searchInput?.addEventListener("input", filterPosts);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) {
+        event.preventDefault();
+        searchInput?.focus();
+      }
+      if (event.key === "Escape" && document.activeElement === searchInput) {
+        searchInput.value = "";
+        filterPosts();
+        searchInput.blur();
+      }
+    });
+  </script>
 </BaseLayout>
