@@ -36,6 +36,13 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      # The project URL is hosted at /blog, while the custom domain is hosted at /.
+      # Keep Astro's /blog asset paths valid on the custom domain as well.
+      - name: Duplicate site under /blog for custom-domain compatibility
+        run: |
+          mkdir -p dist/blog
+          rsync -a --exclude='/blog/' dist/ dist/blog/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
