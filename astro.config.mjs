@@ -3,8 +3,7 @@ import svelte from "@astrojs/svelte";
 import remarkCallouts from "./src/lib/remark-callouts.mjs";
 
 export default defineConfig({
-  site: "https://adidotzip.github.io",
-  base: "/blog",
+  site: "https://blog.adi.rest",
   integrations: [svelte()],
   markdown: {
     remarkPlugins: [remarkCallouts],
