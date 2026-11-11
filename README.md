@@ -1,4 +1,5 @@
 # adi's corner
+<a href="https://madewithjev.com/free-tools/ai-slop-detector/report/blog.adi.rest"><img src="https://madewithjev.com/free-tools/ai-slop-detector/badge/blog.adi.rest" alt="23% AI slop, checked by Jev" height="20"></a>
 
 A personal blog built with **Astro + Svelte**, with a Material 3-inspired palette, Markdown posts, Google Sans Rounded loaded from the upstream GitHub repository, and Material Symbols Rounded icons.
 
