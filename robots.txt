@@ -1,0 +1,25 @@
+     ▄▄                  ▄   ▄   
+   ▄█▓▓▄▄▄▄▄        ▄▄████ ▐████▄
+  ██▒▒█ ██▓█▌       █▓░▓██ ██▓░▓█
+ ▐█▓░▓█ █▓█▓█       █▓ ░██ ▄▀▀▀▀▄
+  ▄▄▄▄▄▄█▓░▒█  ▄▄▄▄▄█░  ▓█ █▓████
+ ▐█▓▓██ █░▒░█ ▓▓░▓█ █ ░ ▒█ █▒ ░ █
+ █▓██▓█ █▒░██ █░ ░█ █░░▒░█ █░▒░░█
+ █░██░█ █░███ █░░ █ █░ ░ █ █ ░ ░█
+ █░██░█ █░░██ ▓░░ █ █  ░▒█ █▒░  █
+ ▐▓█▒▒█ █▒█░█ █   █ ▓ ░▓██ █▓▒▒ ▓
+   ▀▀▀▀▀█▓█▒█ █▒▓▓█▀▀▀▀▀▀▀ █▄▄▄▄█
+
+User-agent: Baiduspider
+Disallow: /
+User-agent: Yeti
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: BLEXBot
+Disallow: /
+User-agent: DataForSeoBot
+Disallow: /
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
