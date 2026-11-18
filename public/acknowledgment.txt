@@ -1,0 +1,34 @@
+
+Project: adi's corner (adidotzip/blog)
+Repository: https://github.com/adidotzip/blog
+Live site: https://blog.adi.rest && https://adidotzip.github.io/blog/
+
+
+SOFTWARE, TECHNOLOGIES & DESIGN REFERENCES
+
+Core development
+- Astro 5 - static site framework, routing, content handling, and production builds.
+- Svelte 5 - interactive UI components, including the theme toggle.
+- TypeScript 5 - typed JavaScript used by the project.
+- Node.js 22 - JavaScript runtime used in the GitHub Actions build workflow.
+- npm - dependency installation and project scripts.
+
+Content and styling
+- Markdown - format used for blog posts.
+- Astro Content Collections and Zod schemas - post loading, frontmatter validation, and content structure through Astro's content APIs.
+- remark - Markdown processing, with a custom remark-callouts plugin in src/lib/remark-callouts.mjs.
+- CSS - global styling, responsive layout, color themes, and Material 3-inspired design tokens.
+- M3 Svelte (kendell.dev/m3-svelte) - Material 3 / Material 3 Expressive design-system reference and styling inspiration.
+- Google Sans Rounded - typeface loaded from the Google-Sans-Rounded repository by tiwa244.
+- Material Symbols Rounded - icon font used for interface icons.
+
+Build and deployment
+- GitHub - source-code hosting and version control.
+- GitHub Actions - automated build and deployment workflow.
+- GitHub Pages - deployment target configured in .github/workflows/deploy.yml.
+
+NOTES
+- Astro, @astrojs/svelte, Svelte, @astrojs/check, and TypeScript are declared in package.json.
+- M3 Svelte is listed as a design reference, not as a declared npm dependency in the repository's package.json.
+- Google Sans Rounded is loaded from an upstream GitHub-hosted font file. Material Symbols Rounded is referenced by the project as an icon font.
+- This file was prepared from the repository's package.json, README, Astro configuration, source files, and GitHub Actions workflow.
